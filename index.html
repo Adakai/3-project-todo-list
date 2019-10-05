@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/main.css">
+
+        <title>Todo List</title>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="header">
+                <div class="img-content">
+                    <div id="date">
+                        <h2>date</h2>
+                    </div>
+                    <h1>todo<span>LIST</span>.</h1>
+                </div>
+            </div>
+            <div class="list-content">
+                <ul id="display_list">
+                    <li class="item">
+                        <img src="./img/icons/checked.svg" job="complete">
+                        <p class="text">Take car to get oil change</p>
+                        <img id="trash" src="./img/icons/trash.svg" job="delete">
+                    </li>
+                </ul>
+            </div>
+            <div class="add-item">
+                <input type="text" id="item_input" placeholder="Add todo item">
+                <img src="./img/icons/plus.svg" id="add_item">
+            </div>
+        </div>
+
+        <script src="./js/index.js"></script>
+
+    </body>
+</html>

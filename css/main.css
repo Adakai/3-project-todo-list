@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap");
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #2d372d; }
+  html .container, body .container {
+    height: 100%; }
+    html .container .header, body .container .header {
+      background-image: url("../img/overlay.jpg");
+      background-position: center;
+      background-size: cover;
+      height: 35%; }
+      html .container .header .img-content, body .container .header .img-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%; }
+        html .container .header .img-content #date, body .container .header .img-content #date {
+          display: flex;
+          justify-content: flex-end;
+          margin-bottom: 40px;
+          margin-top: 10px;
+          width: 90%;
+          color: #fff;
+          font-size: 1.5em; }
+          @media screen and (max-width: 900px) {
+            html .container .header .img-content #date, body .container .header .img-content #date {
+              margin-bottom: 35px;
+              font-size: 1.225em; } }
+          @media screen and (max-width: 600px) {
+            html .container .header .img-content #date, body .container .header .img-content #date {
+              margin-bottom: 20px;
+              font-size: 1em; } }
+        html .container .header .img-content h1, body .container .header .img-content h1 {
+          text-align: center;
+          background-color: #d3d3d340;
+          margin: 0;
+          width: 100%;
+          color: #fff;
+          font-size: 5em; }
+          html .container .header .img-content h1 span, body .container .header .img-content h1 span {
+            color: #2d372d; }
+          @media screen and (max-width: 900px) {
+            html .container .header .img-content h1, body .container .header .img-content h1 {
+              font-size: 4em; } }
+          @media screen and (max-width: 600px) {
+            html .container .header .img-content h1, body .container .header .img-content h1 {
+              font-size: 3.5em; } }
+    html .container .list-content, body .container .list-content {
+      width: 100%;
+      height: 50%;
+      background-color: #fff; }
+      html .container .list-content #display_list, body .container .list-content #display_list {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 0; }
+        html .container .list-content #display_list .item, body .container .list-content #display_list .item {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 100%; }
+          html .container .list-content #display_list .item .text, body .container .list-content #display_list .item .text {
+            width: 60%; }
+          html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
+            font-size: 2em; }
+          html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
+            height: 40px; }
+        @media screen and (max-width: 900px) {
+          html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
+            font-size: 1.5em; }
+          html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
+            height: 30px; } }
+        @media screen and (max-width: 600px) {
+          html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
+            font-size: 1em; }
+          html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
+            height: 20px; } }
+    html .container .add-item, body .container .add-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-top: 5px solid lightgray;
+      border-bottom: 1px solid lightgray;
+      width: 100%;
+      height: 10%;
+      padding: 5px 0;
+      font-size: 2.5em; }
+      html .container .add-item #item_input, body .container .add-item #item_input {
+        text-align: center;
+        width: 100%;
+        height: 97%;
+        margin-left: 7%;
+        border: none;
+        font-size: 1.4em;
+        outline-color: #2d372d; }
+      html .container .add-item img, body .container .add-item img {
+        height: 80%;
+        margin-right: 1.5%;
+        margin-left: 1.5%; }
+      @media screen and (max-width: 900px) {
+        html .container .add-item, body .container .add-item {
+          font-size: 2em;
+          height: 8%; }
+          html .container .add-item img, body .container .add-item img {
+            height: 60%; } }
+      @media screen and (max-width: 600px) {
+        html .container .add-item, body .container .add-item {
+          font-size: 1.2em;
+          height: 6%; }
+          html .container .add-item img, body .container .add-item img {
+            height: 40%; } }
