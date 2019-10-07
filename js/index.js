@@ -1,7 +1,7 @@
 const dateElement = document.getElementById('date');
-const listDisplay = document.getElementById('display_list');
-const itemInput = document.getElementById('item_input');
-const addItem = document.getElementById('add_item');
+// const listDisplay = document.getElementById('display_list');
+// const itemInput = document.getElementById('item_input');
+// const addItem = document.getElementById('add_item');
 
 const checked = './img/icons/checked.svg'
 const unchecked = './img/icons/unchecked.svg'
@@ -12,34 +12,34 @@ const today = new Date();
 dateElement.innerHTML = today.toLocaleDateString('en-US', dateOptions);
 
 
-function addToDo(todo) {
-    let item = `<li class="item">
-                 <img src=${unchecked} job="complete">
-                 <p class="text">${todo}</p>
-                 <img id="trash" src="./img/icons/trash.svg" job="delete">
-                 </li>`
-    let position = 'beforeend';
+// function addToDo(todo) {
+//     let item = `<li class="item">
+//                  <img src=${unchecked} job="complete">
+//                  <p class="text">${todo}</p>
+//                  <img id="trash" src="./img/icons/trash.svg" job="delete">
+//                  </li>`
+//     let position = 'beforeend';
 
-    listDisplay.insertAdjacentHTML(position, item);
-};  
+//     listDisplay.insertAdjacentHTML(position, item);
+// };  
 
-document.addEventListener('keyup', function(event) {
-    if (event.keyCode == 13) {
-        let todo = itemInput.value;
+// document.addEventListener('keyup', function(event) {
+//     if (event.keyCode == 13) {
+//         let todo = itemInput.value;
 
-        if (todo) {
-            addToDo(todo);
-            itemInput.value = '';
-        }  
-    }
-});
+//         if (todo) {
+//             addToDo(todo);
+//             itemInput.value = '';
+//         }  
+//     }
+// });
 
 
 //jquery
 
 let biglist = [];
 
-$(".listbox").sortable({
+$("#display_list").sortable({
     stop: function(event, ui) {executecode();}
  });
 
@@ -57,35 +57,36 @@ function buttonClicked() {
 };
 
 function addItem() {
-    let input = $('#input').val();
+    let input = $('#item_input').val();
 
     let tempobj = {};
     tempobj.listname = input;
     tempobj.liscol = [];
     biglist.push(tempobj);
-    $('input').val('');
+    $('#item_input').val('');
     printmypage();
-
-    // $('.listbox').append(`<div class="list"><i class="fas fa-trash" onclick="trashClicked(this)"></i>${input}</div>`);
-    // $('input').val('');
-
-
-    console.log(input);
+    console.log(biglist);
 };
 
 function printmypage() {
-    $('.listbox').html('');
+    $('#display_list').html('');
     for(var i = 0; i < biglist.length; i ++) {
-        $('.listbox').append(`<div class="list"><i class="fas fa-trash" onclick="trashClicked(this)"></i>${biglist[i].listname}</div>`);
+        $('#display_list').append(`<li class="item">
+                                        <img src=${unchecked}>
+                                        <p class="text">${biglist[i].listname}</p>
+                                        <img id="trash" src="./img/icons/trash.svg" onclick="trashClicked(this)">
+                                    </li>`);
     };
 };
 
 function trashClicked(el) {
     $(el).parent().remove();
+        
+    
 };
 
 function executecode() {
-    let listarray = $(".listbox").children();
+    let listarray = $("#display_list").children();
     $(listarray[0]).addClass("activeitem");
 };
 

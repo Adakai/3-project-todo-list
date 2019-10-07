@@ -22,16 +22,16 @@
             </div>
             <div class="list-content">
                 <ul id="display_list">
-                    <li class="item">
+                    <!-- <li class="item">
                         <img src="./img/icons/checked.svg" job="complete">
                         <p class="text">Take car to get oil change</p>
                         <img id="trash" src="./img/icons/trash.svg" job="delete">
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="add-item">
-                <input type="text" id="item_input" placeholder="Add todo item">
-                <img src="./img/icons/plus.svg" id="add_item">
+                <input type="text" id="item_input" placeholder="add item" onkeyup="saveitem(event)">
+                <img src="./img/icons/plus.svg" id="add_item" onclick="buttonClicked()">
             </div>
         </div>
 
