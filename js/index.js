@@ -21,7 +21,7 @@ function addToDo(todo) {
     let position = 'beforeend';
 
     listDisplay.insertAdjacentHTML(position, item);
-}    
+};  
 
 document.addEventListener('keyup', function(event) {
     if (event.keyCode == 13) {
@@ -29,7 +29,63 @@ document.addEventListener('keyup', function(event) {
 
         if (todo) {
             addToDo(todo);
-        }
-        itemInput.value = '';
+            itemInput.value = '';
+        }  
     }
-})
+});
+
+
+//jquery
+
+let biglist = [];
+
+$(".listbox").sortable({
+    stop: function(event, ui) {executecode();}
+ });
+
+function saveitem(event) {
+    switch(event.which) {
+        case 13:
+            addItem();
+            break;
+        default:
+        }
+};
+
+function buttonClicked() {
+    addItem();
+};
+
+function addItem() {
+    let input = $('#input').val();
+
+    let tempobj = {};
+    tempobj.listname = input;
+    tempobj.liscol = [];
+    biglist.push(tempobj);
+    $('input').val('');
+    printmypage();
+
+    // $('.listbox').append(`<div class="list"><i class="fas fa-trash" onclick="trashClicked(this)"></i>${input}</div>`);
+    // $('input').val('');
+
+
+    console.log(input);
+};
+
+function printmypage() {
+    $('.listbox').html('');
+    for(var i = 0; i < biglist.length; i ++) {
+        $('.listbox').append(`<div class="list"><i class="fas fa-trash" onclick="trashClicked(this)"></i>${biglist[i].listname}</div>`);
+    };
+};
+
+function trashClicked(el) {
+    $(el).parent().remove();
+};
+
+function executecode() {
+    let listarray = $(".listbox").children();
+    $(listarray[0]).addClass("activeitem");
+};
+
