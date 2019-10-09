@@ -83,12 +83,14 @@ html, body {
                 
                 .item {
                     display: flex;
-                    justify-content: space-evenly;
+                    justify-content: center;
                     align-items: center;
                     width: 100%;
 
                     .text {
                         width: 60%;
+                        margin-left: 10%;
+                        font-size: 2em;
                     }
 
                     p {

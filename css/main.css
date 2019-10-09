@@ -64,11 +64,13 @@ html, body {
         padding: 0; }
         html .container .list-content #display_list .item, body .container .list-content #display_list .item {
           display: flex;
-          justify-content: space-evenly;
+          justify-content: center;
           align-items: center;
           width: 100%; }
           html .container .list-content #display_list .item .text, body .container .list-content #display_list .item .text {
-            width: 60%; }
+            width: 60%;
+            margin-left: 10%;
+            font-size: 2em; }
           html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
             font-size: 2em; }
           html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
