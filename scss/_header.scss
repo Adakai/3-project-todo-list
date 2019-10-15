@@ -1,0 +1,82 @@
+@import "_varibles.scss";
+
+.header-img {
+    @include box-shadow-one();
+    background-image: url('../img/overlay.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-bottom: 20px;
+
+    .head-container-date {
+        display: flex;
+        justify-content: flex-end;
+        height: 15%;
+        margin-right: 2.5%;
+        margin-top: .5%;
+
+        .header-date {
+            
+            h2 {
+                color: $white;
+                font-size: 1.5em
+            }
+            @media screen and (max-width: 900px) {
+                h2 {
+                    font-size: 1.25em;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                h2 {
+                    font-size: 1em;
+                }
+            }
+
+        }   
+    }
+}
+
+.head-container-title {
+    @include flex-jcenter-acenter();
+    height: 85%;
+
+    .header-title {
+        width: 100%;
+        color: $white;
+
+        h1 {
+            @include flex-jcenter-acenter();
+            background-color: #d3d3d340;
+            font-size: 5em;
+
+            span {
+                 color: $green;
+            }
+        }
+        @media screen and (max-width: 900px) {
+            h1 {
+                font-size: 3.5em;
+                
+            }
+        }
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .header-img {
+        height: 150px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .header-img {
+        height: 100px;
+    }
+}
+

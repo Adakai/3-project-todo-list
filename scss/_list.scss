@@ -1,0 +1,90 @@
+@import "_varibles.scss";
+
+.list-content {
+    #list_name {
+        margin: 0;
+        padding: 0;
+
+        .item {
+            display: flex;
+            justify-content: space-around;
+            height: 50px;
+            width: 100%;
+
+            .text {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                width: 50%;
+                h2 {
+                    margin: 0;
+                    margin-left: 5%;
+                    font-size: 2.5em;
+                }
+            }
+            .item-btns {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 50px;
+                width: 50%;
+
+                button {
+                    @include box-shadow-btn();
+                    width: 100px;
+                    margin-right: 5%;
+                    font-size: 1em;
+
+                    i {
+                        margin-left: 10px;
+                        font-size: 1em;
+                    }
+                }
+            }
+            @media screen and (max-width: 900px) {
+                .text {
+                    h2 {
+                        font-size: 2em;
+                    }
+                }
+
+                .item-btns {
+                    button {
+                        width: 75px;
+                        padding: 5px;
+                        font-size: 1em;
+
+                        i {
+                            margin-left: 8px;
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .text {
+                    h2 {
+                        font-size: 1.5em;
+                    }
+                }
+
+                .item-btns {
+                    button {
+                        width: 55px;
+                        padding: 2.5px;
+                        font-size: 0.7em;
+
+                        i {
+                            margin-left: 6px;
+                            font-size: 0.6em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#task_input {
+    width: 50%;
+}

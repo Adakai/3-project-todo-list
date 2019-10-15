@@ -1,127 +1,151 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap");
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-  font-family: 'Roboto Condensed', sans-serif;
-  background-color: #fff; }
-  html .container, body .container {
-    height: 100%; }
-    html .container .header, body .container .header {
-      background-image: url("../img/overlay.jpg");
-      background-position: center;
-      background-size: cover;
-      height: 35%; }
-      html .container .header .img-content, body .container .header .img-content {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        height: 100%; }
-        html .container .header .img-content #date, body .container .header .img-content #date {
-          display: flex;
-          justify-content: flex-end;
-          margin-bottom: 40px;
-          margin-top: 10px;
-          width: 90%;
-          color: #fff;
-          font-size: 1.5em; }
-          @media screen and (max-width: 900px) {
-            html .container .header .img-content #date, body .container .header .img-content #date {
-              margin-bottom: 35px;
-              font-size: 1.225em; } }
-          @media screen and (max-width: 600px) {
-            html .container .header .img-content #date, body .container .header .img-content #date {
-              margin-bottom: 20px;
-              font-size: 1em; } }
-        html .container .header .img-content h1, body .container .header .img-content h1 {
-          text-align: center;
-          background-color: #d3d3d340;
-          margin: 0;
-          width: 100%;
-          color: #fff;
-          font-size: 5em; }
-          html .container .header .img-content h1 span, body .container .header .img-content h1 span {
-            color: #2d372d; }
-          @media screen and (max-width: 900px) {
-            html .container .header .img-content h1, body .container .header .img-content h1 {
-              font-size: 4em; } }
-          @media screen and (max-width: 600px) {
-            html .container .header .img-content h1, body .container .header .img-content h1 {
-              font-size: 3.5em; } }
-    html .container .list-content, body .container .list-content {
-      width: 100%;
-      height: 50%;
-      background-color: #fff; }
-      html .container .list-content #display_list, body .container .list-content #display_list {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        padding: 0; }
-        html .container .list-content #display_list .item, body .container .list-content #display_list .item {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%; }
-          html .container .list-content #display_list .item .text, body .container .list-content #display_list .item .text {
-            width: 60%;
-            margin-left: 10%;
-            font-size: 2em; }
-          html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
-            font-size: 2em; }
-          html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
-            height: 40px; }
-        @media screen and (max-width: 900px) {
-          html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
-            font-size: 1.5em; }
-          html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
-            height: 30px; } }
-        @media screen and (max-width: 600px) {
-          html .container .list-content #display_list .item p, body .container .list-content #display_list .item p {
-            font-size: 1em; }
-          html .container .list-content #display_list .item img, body .container .list-content #display_list .item img {
-            height: 20px; } }
-    html .container .add-item, body .container .add-item {
+.header-img {
+  box-shadow: 0px 4px 10px 4px #2a2a2a78;
+  background-image: url("../img/overlay.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin-bottom: 20px; }
+  .header-img .head-container-date {
+    display: flex;
+    justify-content: flex-end;
+    height: 15%;
+    margin-right: 2.5%;
+    margin-top: .5%; }
+    .header-img .head-container-date .header-date h2 {
+      color: #fff;
+      font-size: 1.5em; }
+    @media screen and (max-width: 900px) {
+      .header-img .head-container-date .header-date h2 {
+        font-size: 1.25em; } }
+    @media screen and (max-width: 600px) {
+      .header-img .head-container-date .header-date h2 {
+        font-size: 1em; } }
+
+.head-container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%; }
+  .head-container-title .header-title {
+    width: 100%;
+    color: #fff; }
+    .head-container-title .header-title h1 {
       display: flex;
       justify-content: center;
       align-items: center;
-      position: fixed;
-      bottom: 0;
-      background-color: #fff;
-      border-top: 5px solid lightgray;
-      border-bottom: 1px solid lightgray;
-      width: 100%;
-      height: 10%;
-      padding: 5px 0;
-      font-size: 2.5em; }
-      html .container .add-item #item_input, body .container .add-item #item_input {
-        text-align: center;
-        width: 100%;
-        height: 97%;
-        margin-left: 7%;
-        border: none;
-        font-size: 1.4em;
-        outline-color: #2d372d; }
-      html .container .add-item img, body .container .add-item img {
-        height: 80%;
-        margin-right: 1.5%;
-        margin-left: 1.5%; }
-      @media screen and (max-width: 900px) {
-        html .container .add-item, body .container .add-item {
-          font-size: 2em;
-          height: 8%; }
-          html .container .add-item img, body .container .add-item img {
-            height: 60%; } }
-      @media screen and (max-width: 600px) {
-        html .container .add-item, body .container .add-item {
-          font-size: 1.2em;
-          height: 6%; }
-          html .container .add-item img, body .container .add-item img {
-            height: 40%; } }
+      background-color: #d3d3d340;
+      font-size: 5em; }
+      .head-container-title .header-title h1 span {
+        color: #2d372d; }
+    @media screen and (max-width: 900px) {
+      .head-container-title .header-title h1 {
+        font-size: 3.5em; } }
+    @media screen and (max-width: 600px) {
+      .head-container-title .header-title h1 {
+        font-size: 2em; } }
 
-.activeitem {
-  color: red; }
+@media screen and (max-width: 900px) {
+  .header-img {
+    height: 150px; } }
+
+@media screen and (max-width: 600px) {
+  .header-img {
+    height: 100px; } }
+
+.list-content #list_name {
+  margin: 0;
+  padding: 0; }
+  .list-content #list_name .item {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    width: 100%; }
+    .list-content #list_name .item .text {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 50%; }
+      .list-content #list_name .item .text h2 {
+        margin: 0;
+        margin-left: 5%;
+        font-size: 2.5em; }
+    .list-content #list_name .item .item-btns {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 50px;
+      width: 50%; }
+      .list-content #list_name .item .item-btns button {
+        box-shadow: 0px 2px 6px 2px #2a2a2a78;
+        width: 100px;
+        margin-right: 5%;
+        font-size: 1em; }
+        .list-content #list_name .item .item-btns button i {
+          margin-left: 10px;
+          font-size: 1em; }
+    @media screen and (max-width: 900px) {
+      .list-content #list_name .item .text h2 {
+        font-size: 2em; }
+      .list-content #list_name .item .item-btns button {
+        width: 75px;
+        padding: 5px;
+        font-size: 1em; }
+        .list-content #list_name .item .item-btns button i {
+          margin-left: 8px;
+          font-size: 0.8em; } }
+    @media screen and (max-width: 600px) {
+      .list-content #list_name .item .text h2 {
+        font-size: 1.5em; }
+      .list-content #list_name .item .item-btns button {
+        width: 55px;
+        padding: 2.5px;
+        font-size: 0.7em; }
+        .list-content #list_name .item .item-btns button i {
+          margin-left: 6px;
+          font-size: 0.6em; } }
+
+#task_input {
+  width: 50%; }
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px 4px #2a2a2a78;
+  background-color: #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
+  .footer-container #footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    width: 90%;
+    height: 10%;
+    padding: 5px 0;
+    font-size: 2.5em;
+    justify-content: center; }
+    .footer-container #footer #item_input {
+      margin: 20px 0;
+      height: 40px;
+      width: 65%;
+      border-radius: 5px; }
+    .footer-container #footer i {
+      font-size: 1.2em;
+      margin-left: 20px; }
+    .footer-container #footer i:hover {
+      color: #457854; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #00000008;
+  color: #6c757c; }

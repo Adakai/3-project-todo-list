@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+            integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
 
-        <title>Todo List</title>
+        <title>todoList</title>
 
     </head>
+
     <body>
 
-        <div class="container">
-            <div class="header">
-                <div class="img-content">
-                    <div id="date">
-                        <h2>date</h2>
+        <div class="header">
+            <div class="header-img">
+                <div class="head-container-date">
+                    <div class="header-date">
+                        <h2 id="date"></h2>
                     </div>
-                    <h1>todo<span>LIST</span>.</h1>
+                </div>
+                <div class="head-container-title">
+                    <div class="header-title">
+                        <h1>todo<span>LIST</span>.</h1>
+                    </div>
                 </div>
             </div>
-            <div class="list-content">
-                <ul id="display_list">
-                </ul>
-            </div>
-            <div class="add-item">
-                <input type="text" id="item_input" placeholder="add item" onkeyup="saveitem(event)">
-                <img src="./img/icons/plus.svg" id="add_item" onclick="buttonClicked()">
+        </div>
+
+        <div class="list-content">
+            <ul id="list_name"></ul>
+        </div>
+
+
+
+        <div class="footer-container">
+            <div id="footer" class="input-group input-group-lg">
+            <input id="item_input" type="text" class="form-control" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="saveitem(event)">
+                <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
             </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src=".js/popper.min.js"></script>
         <script src="./js/index.js"></script>
     </body>
+
 </html>
