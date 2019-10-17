@@ -1,6 +1,6 @@
 @import "_varibles.scss";
 
-.list-content {
+#list_content {
     #list_name {
         margin: 0;
         padding: 0;
@@ -82,9 +82,52 @@
                 }
             }
         }
+
+        #task {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .task {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40%;
+                h2 {
+                    display: flex;
+                    width: 100%;
+                }
+            }
+
+            #task_input {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+
+                label {
+                    margin-right: 5%;
+                    font-size: 1.5em;
+                }
+
+                input {
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    background-color: $bgcolor;
+                }
+                input:focus {
+                    outline: none;
+                    border-bottom: 1px solid black;
+                }
+                i {
+                    margin-left: 2.5%;
+                    font-size: 2em;
+                }
+            }
+        }
     }
 }
 
-#task_input {
-    width: 50%;
-}
+// bootstrap

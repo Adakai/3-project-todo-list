@@ -55,60 +55,89 @@
   .header-img {
     height: 100px; } }
 
-.list-content #list_name {
+#list_content #list_name {
   margin: 0;
   padding: 0; }
-  .list-content #list_name .item {
+  #list_content #list_name .item {
     display: flex;
     justify-content: space-around;
     height: 50px;
     width: 100%; }
-    .list-content #list_name .item .text {
+    #list_content #list_name .item .text {
       display: flex;
       align-items: center;
       height: 100%;
       width: 50%; }
-      .list-content #list_name .item .text h2 {
+      #list_content #list_name .item .text h2 {
         margin: 0;
         margin-left: 5%;
         font-size: 2.5em; }
-    .list-content #list_name .item .item-btns {
+    #list_content #list_name .item .item-btns {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       height: 50px;
       width: 50%; }
-      .list-content #list_name .item .item-btns button {
+      #list_content #list_name .item .item-btns button {
         box-shadow: 0px 2px 6px 2px #2a2a2a78;
         width: 100px;
         margin-right: 5%;
         font-size: 1em; }
-        .list-content #list_name .item .item-btns button i {
+        #list_content #list_name .item .item-btns button i {
           margin-left: 10px;
           font-size: 1em; }
     @media screen and (max-width: 900px) {
-      .list-content #list_name .item .text h2 {
+      #list_content #list_name .item .text h2 {
         font-size: 2em; }
-      .list-content #list_name .item .item-btns button {
+      #list_content #list_name .item .item-btns button {
         width: 75px;
         padding: 5px;
         font-size: 1em; }
-        .list-content #list_name .item .item-btns button i {
+        #list_content #list_name .item .item-btns button i {
           margin-left: 8px;
           font-size: 0.8em; } }
     @media screen and (max-width: 600px) {
-      .list-content #list_name .item .text h2 {
+      #list_content #list_name .item .text h2 {
         font-size: 1.5em; }
-      .list-content #list_name .item .item-btns button {
+      #list_content #list_name .item .item-btns button {
         width: 55px;
         padding: 2.5px;
         font-size: 0.7em; }
-        .list-content #list_name .item .item-btns button i {
+        #list_content #list_name .item .item-btns button i {
           margin-left: 6px;
           font-size: 0.6em; } }
-
-#task_input {
-  width: 50%; }
+  #list_content #list_name #task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #list_content #list_name #task .task {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%; }
+      #list_content #list_name #task .task h2 {
+        display: flex;
+        width: 100%; }
+    #list_content #list_name #task #task_input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%; }
+      #list_content #list_name #task #task_input label {
+        margin-right: 5%;
+        font-size: 1.5em; }
+      #list_content #list_name #task #task_input input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid gray;
+        background-color: #00000008; }
+      #list_content #list_name #task #task_input input:focus {
+        outline: none;
+        border-bottom: 1px solid black; }
+      #list_content #list_name #task #task_input i {
+        margin-left: 2.5%;
+        font-size: 2em; }
 
 .footer-container {
   display: flex;

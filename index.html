@@ -31,15 +31,48 @@
             </div>
         </div>
 
-        <div class="list-content">
-            <ul id="list_name"></ul>
+        <div id="list_content">
+            <!-- <ul id="list_name">
+                <li class="item">
+                    <div class="text">
+                        <h2>Todo App<h2>
+                    </div>
+                    <div class="item-btns">
+                        <button type="button" class="btn btn-secondary" onclick="addTaskInput()">Task<i class="fas fa-plus-circle"></i></button>
+                        <button type="button" class="btn btn-secondary" onclick="trashClicked(this)">Delete<i class="fas fa-trash"></i></button>
+                    </div>  
+                </li>
+                <li id="task">
+                    <div class="task">
+                        <h2>Finish Javascript</h2>
+                        <i class="far fa-circle"></i>
+                    </div>
+                    <div class="task">
+                        <h2>Design needs work</h2>
+                        <i class="far fa-circle"></i>
+                    </div>
+                    <div class="task">
+                        <h2>Due date is on the 27th</h2>
+                        <i class="far fa-circle"></i>
+                    </div>
+                    <div class="task">
+                        <h2>Stackover flow for resources</h2>
+                        <i class="far fa-circle"></i>
+                    </div>
+                    <div id="task_input">
+                        <label>Task: </label>
+                        <input id="task_item" type="text" onkeyup="enterClicked(event)">
+                        <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
+                    </div>
+                </li>
+            </ul> -->
         </div>
 
 
 
         <div class="footer-container">
             <div id="footer" class="input-group input-group-lg">
-            <input id="item_input" type="text" class="form-control" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="saveitem(event)">
+                <input id="list_input" type="text" class="form-control input-group input-group-lg" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="enterClicked(event)">
                 <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
             </div>
         </div>
@@ -48,7 +81,7 @@
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="./js/bootstrap.min.js"></script>
-        <script src=".js/popper.min.js"></script>
+        <script src="./js/popper.min.js"></script>
         <script src="./js/index.js"></script>
     </body>
 

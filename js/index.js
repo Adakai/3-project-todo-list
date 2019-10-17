@@ -1,90 +1,135 @@
-// const listDisplay = document.getElementById('display_list');
-// const itemInput = document.getElementById('item_input');
-// const addItem = document.getElementById('add_item');
+const STORAGE_KEY = "1320984712389745";
 
-const checked = '<i class="fas fa-check-circle"></i>';
-const unchecked = '<i class="far fa-circle"></i>';
+const stringToObj = str => JSON.parse(str) || [];
+const objToString = obj => JSON.stringify(obj) || "";
 
-const dateElement = document.getElementById("date");
+const listContent = document.getElementById("list_content");
 
-const dateOptions = { weekday: "long", month: "short", day: "numeric" };
-const today = new Date();
+let itemInput = document.getElementById("list_input");
 
-dateElement.innerHTML = today.toLocaleDateString("en-US", dateOptions);
+let bigListArray = [];
 
-//jquery
+(function getDate() {
+    const dateElement = document.getElementById("date");
 
-let listItems = [];
+    const dateOptions = { weekday: "long", month: "short", day: "numeric" };
+    const today = new Date();
 
-$("#list_name").sortable({
-    stop: function(event, ui) {
-        executecode();
+    dateElement.innerHTML = today.toLocaleDateString("en-US", dateOptions);
+})();
+
+class Lists {
+    constructor(item) {
+        this.item = item;
+        // this.task = task;
     }
-});
+};
 
-function saveitem(event) {
+function enterClicked(event) {
+
+    switch (event.which) {
+        case 13:
+            getList();
+            break;
+        default:
+    };
+    
+};
+
+function buttonClicked() {
+    getList();
+};
+
+function getList() {
+
+    let newList = new Lists(itemInput.value);
+
+    bigListArray.push(newList);
+
+    printList(newList);
+    itemInput.value = "";
+};
+
+function printList() {
+
+    let html = "<ul id=list_name>";
+
+    bigListArray.forEach(list => {
+        
+        html += `
+                <li class="item">
+                    <div class="text">
+                        <h2>${list.item}<h2>
+                    </div>
+                    <div class="item-btns">
+                        <button type="button" class="btn btn-secondary" onclick="addTaskInput()">Task<i class="fas fa-plus-circle"></i></button>
+                        <button type="button" class="btn btn-secondary" onclick="trashClicked(this)">Delete<i class="fas fa-trash"></i></button>
+                    </div>  
+                </li>
+                `;
+    });
+
+    html += "</ul>";
+
+    listContent.innerHTML = html;
+};
+
+function addTaskInput() {
+
+    if (document.body.contains(document.getElementById('task'))) {
+        
+    } else {
+
+        let inputShow = document.getElementById('list_name');
+
+        inputShow.insertAdjacentHTML('beforeend', `
+                <li id="task">
+                    <div id="task_input">
+                        <label>Task: </label>
+                        <input id="task_item" type="text" onkeyup="addTask(event)">
+                        <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
+                    </div>
+                </li>
+        `);
+    };    
+};
+
+function addTask(event) {
+    
     switch (event.which) {
         case 13:
             addItem();
             break;
         default:
-    }
-}
+    };
 
-function buttonClicked() {
-    addItem();
-}
+    function addItem() {
 
-function addItem() {
-    let input = $("#item_input").val();
+        let inputTask = document.getElementById('task');
+        let task = document.getElementById('task_item');
 
-    let tempobj = {};
-    tempobj.listname = input;
-    tempobj.liscol = [];
-    listItems.push(tempobj);
-    $("#item_input").val("");
-    printmypage();
-    console.log(listItems);
-}
-
-function printmypage() {
-    $("#list_name").html("");
-    for (var i = 0; i < listItems.length; i++) {
-        $("#list_name").append(`
-        
-        <li class="item">
-            <div id="edit_item" class="text" onclick="editItem()">
-                <h2>${listItems[i].listname}<h2>
-            </div>
-            <div class="item-btns">
-                <button type="button" class="btn btn-secondary" onclick="addTask()">Task<i class="fas fa-plus-circle"></i></button>
-                <button type="button" class="btn btn-secondary" onclick="trashClicked(this)">Delete<i class="fas fa-trash"></i></button>
-            </div>
-        </li>    
+        inputTask.insertAdjacentHTML('afterbegin', `
+                    <div class="task">
+                        <h2>${task.value}</h2>
+                        <i class="far fa-circle"></i>
+                    </div>
         `);
+
+        task.value = '';
     }
-}
+
+};
 
 function trashClicked(el) {
-    listItems.splice($(el).parent().parent().index(), 1);
+
+    bigListArray.splice($(el).parent().parent().index(), 1);
     $(el).parent().parent().remove();
+   
+    // bigListArray.splice(el, 1);
+    // el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);
+};
 
-    printmypage();
-}
 
-function addTask() {
-    $("#edit_item").append(`
-        <input id="task_input" type="text" class="form-control" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="saveitem(event)">
-    `);
-}
 
-function editItem() {
-    $("#list_name").append(`
-        <input id="task_input" type="text" class="form-control" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="saveitem(event)">
-    `);
-}
 
-function executecode() {
-    let listarray = $("#list_name").children();
-    $(listarray[0]).addClass("activeitem");
-}
+
