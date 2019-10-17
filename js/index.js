@@ -52,6 +52,10 @@ function getList() {
 };
 
 function printList() {
+
+    let ranId = Math.floor(Math.random() * 1000);
+
+    console.log(ranId);
    
     let listContent = document.getElementById('list_content');
 
@@ -59,7 +63,7 @@ function printList() {
       listContent.insertAdjacentHTML('afterbegin',
         `
             <ul id="list_name">
-                <li id="item">
+                <li id="item${ranId}" class="item">
                     <div class="list-items">
                         <div class="list-name">
                             <h2>${list.item}<h2>
@@ -73,40 +77,63 @@ function printList() {
             </ul>
         `);
     });
+    
 };
 
-function addTaskInput(el) {
-    console.log(el);    
+function addTaskInput(id) {
 
-    console.log(bigTaskArray);
-    if (document.body.contains(document.getElementById('task'))) {
-    } else {
-        let inputShow = document.getElementById('item');
+    let ranId = Math.floor(Math.random() * 1000);
 
+    let inputShow;
+    let curId = $(id).closest('li').attr('id');    
+    
+    if (document.body.contains(document.getElementById('task_input'))) {
+
+        let taskRemove = document.getElementById('task_input');
+        taskRemove.parentNode.removeChild(taskRemove);
+
+        inputShow = document.getElementById(`${curId}`);
+        
         inputShow.insertAdjacentHTML(
             'beforeend',
             `
-                <div id="task">
+                <div class="task-input" id="task${ranId}">
                     <div id="task_input">
                         <label>Task: </label>
-                        <input id="task_item" type="text" onkeyup="addTask(event)">
+                        <input id="task_item" type="text" onkeyup="addTask(event, this)">
                         <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
                     </div>
                 </div>
         `
         );
+
+    } else {
+        inputShow = document.getElementById(`${curId}`);
+
+        inputShow.insertAdjacentHTML(
+            'beforeend',
+            `
+                <div class="task-input" id="task${ranId}">
+                    <div id="task_input">
+                        <label>Task: </label>
+                        <input id="task_item" type="text" onkeyup="addTask(event, this)">
+                        <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
+                    </div>
+                </div>
+            `
+        );
     };
 };
 
-function addTask(event) {
+function addTask(event, id) {
     switch (event.which) {
         case 13:
-            addItem();
+            addItem(id);
             break;
         default:
     };
 
-    function addItem() {
+    function addItem(id) {
         bigTaskArray = [];
 
         let task = document.getElementById('task_item');
@@ -114,13 +141,19 @@ function addTask(event) {
 
         bigTaskArray.push(newTask);
 
-        printTask();
+        printTask(id);
         task.value = "";
     };
 };
 
-function printTask() {
-    let inputTask = document.getElementById('task');
+function printTask(id) {
+
+    let curId = $(id).parents("div").eq(1).attr('id');
+
+    console.log(curId);
+    
+    let inputTask = document.getElementById(curId);
+    
 
     bigTaskArray.forEach(list => {
         inputTask.insertAdjacentHTML(
