@@ -5,129 +5,136 @@
         margin: 0;
         padding: 0;
 
-        .item {
-            display: flex;
-            justify-content: space-around;
-            height: 50px;
-            width: 100%;
+        #item {
+        display: flex;
+        flex-direction: column;
+         
 
-            .text {
+            .list-items {
                 display: flex;
-                align-items: center;
-                height: 100%;
-                width: 50%;
-                h2 {
-                    margin: 0;
-                    margin-left: 5%;
-                    font-size: 2.5em;
-                }
-            }
-            .item-btns {
-                display: flex;
-                justify-content: flex-end;
                 align-items: center;
                 height: 50px;
-                width: 50%;
+                width: 100%;
 
-                button {
-                    @include box-shadow-btn();
-                    width: 100px;
-                    margin-right: 5%;
-                    font-size: 1em;
-
-                    i {
-                        margin-left: 10px;
-                        font-size: 1em;
-                    }
-                }
-            }
-            @media screen and (max-width: 900px) {
-                .text {
-                    h2 {
-                        font-size: 2em;
-                    }
-                }
-
-                .item-btns {
-                    button {
-                        width: 75px;
-                        padding: 5px;
-                        font-size: 1em;
-
-                        i {
-                            margin-left: 8px;
-                            font-size: 0.8em;
-                        }
-                    }
-                }
-            }
-            @media screen and (max-width: 600px) {
-                .text {
-                    h2 {
-                        font-size: 1.5em;
-                    }
-                }
-
-                .item-btns {
-                    button {
-                        width: 55px;
-                        padding: 2.5px;
-                        font-size: 0.7em;
-
-                        i {
-                            margin-left: 6px;
-                            font-size: 0.6em;
-                        }
-                    }
-                }
-            }
-        }
-
-        #task {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            .task {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 40%;
-                h2 {
+                .list-name {
                     display: flex;
-                    width: 100%;
-                }
-            }
+                    align-items: center;
+                    height: 100%;
+                    width: 50%;
+                    h2 {
+                        margin: 0;
+                        margin-left: 5%;
+                        font-size: 2.5em;
+                    };
+                };
 
-            #task_input {
+                .item-btns {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    height: 50px;
+                    width: 50%;
+
+                    button {
+                        @include box-shadow-btn();
+                        width: 100px;
+                        margin-right: 5%;
+                        font-size: 1em;
+
+                        i {
+                            margin-left: 10px;
+                            font-size: 1em;
+                        };
+                    };
+                };
+
+                @media screen and (max-width: 900px) {
+                    .list-name {
+                        h2 {
+                            font-size: 2em;
+                        };
+                    };
+
+                    .item-btns {
+                        button {
+                            width: 75px;
+                            padding: 5px;
+                            font-size: 1em;
+
+                            i {
+                                margin-left: 8px;
+                                font-size: 0.8em;
+                            };
+                        };
+                    };
+                };
+
+                @media screen and (max-width: 600px) {
+                    .list-name {
+                        h2 {
+                            font-size: 1.5em;
+                        };
+                    };
+
+                    .item-btns {
+                        button {
+                            width: 55px;
+                            padding: 2.5px;
+                            font-size: 0.7em;
+
+                            i {
+                                margin-left: 6px;
+                                font-size: 0.6em;
+                            };
+                        };
+                    };
+                };
+            };
+
+            #task {
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
                 align-items: center;
-                width: 50%;
-
-                label {
-                    margin-right: 5%;
-                    font-size: 1.5em;
-                }
-
-                input {
-                    width: 100%;
-                    border: none;
-                    border-bottom: 1px solid gray;
-                    background-color: $bgcolor;
-                }
-                input:focus {
-                    outline: none;
-                    border-bottom: 1px solid black;
-                }
-                i {
-                    margin-left: 2.5%;
-                    font-size: 2em;
-                }
-            }
-        }
-    }
-}
+                justify-content: center;
+    
+                .task {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40%;
+                    h2 {
+                        display: flex;
+                        width: 100%;
+                    };
+                };
+    
+                #task_input {
+                    display: flex;
+                    width: 50%;
+    
+                    label {
+                        margin-right: 5%;
+                        font-size: 1.5em;
+                    };
+    
+                    input {
+                        width: 100%;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        background-color: $bgcolor;
+                    };
+                    input:focus {
+                        outline: none;
+                        border-bottom: 1px solid black;
+                    };
+                    i {
+                        margin-left: 2.5%;
+                        font-size: 2em;
+                    };
+                };
+            };
+        };
+    };
+};
 
 // bootstrap
