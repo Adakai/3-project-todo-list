@@ -170,8 +170,8 @@ function printTask(id) {
             'afterbegin',
             `
                         <div class="task">
-                            <h2 data-editable>${list.task}</h2>
-                            <i class="far fa-circle"></i>
+                            <h2 class="not-completed" data-editable>${list.task}</h2>
+                            <i class="far fa-circle not-completed"></i>
                         </div>
                 `
         );
@@ -212,6 +212,14 @@ function trashClicked(el) {
     // bigListArray.splice(el, 1);
     // el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);
 };
+
+// function completedTask(el) {
+// }
+$('.not-completed').click(function(){
+    
+    $(this).addClass('completed');
+    $(this).siblings().addClass('completed');
+});
 
 
 $('body').on('click', '[data-editable]', function(){

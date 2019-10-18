@@ -60,6 +60,8 @@
   flex-direction: column;
   text-align: center; }
   #list_content .list-collapse {
+    box-shadow: 0px 4px 10px 4px #2a2a2a78;
+    margin-bottom: 10px;
     font-size: 1.3em;
     border: 1px solid gray;
     background-color: #2d372d;
@@ -132,6 +134,8 @@
           #list_content #list_name .item .task-input .task h2 {
             display: flex;
             width: 100%; }
+        #list_content #list_name .item .task-input .completed {
+          color: green; }
         #list_content #list_name .item .task-input #task_input {
           display: flex;
           width: 50%; }
@@ -148,7 +152,8 @@
             border-bottom: 1px solid black; }
           #list_content #list_name .item .task-input #task_input i {
             margin-left: 2.5%;
-            font-size: 2em; }
+            font-size: 2em;
+            cursor: pointer; }
 
 input {
   width: 100%;

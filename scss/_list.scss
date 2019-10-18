@@ -6,6 +6,8 @@
     text-align: center;
 
     .list-collapse {
+        @include box-shadow-one();
+        margin-bottom: 10px;
         font-size: 1.3em;
         border: 1px solid gray;
         background-color: $green;
@@ -119,6 +121,10 @@
                         width: 100%;
                     };
                 };
+
+                .completed {
+                    color: green;
+                };
     
                 #task_input {
                     display: flex;
@@ -142,6 +148,7 @@
                     i {
                         margin-left: 2.5%;
                         font-size: 2em;
+                        cursor: pointer;
                     };
                 };
             };
