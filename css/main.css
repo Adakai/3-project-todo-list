@@ -140,6 +140,16 @@
           margin-left: 2.5%;
           font-size: 2em; }
 
+input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  outline: none; }
+
+input:focus {
+  outline: none;
+  font-size: 2em; }
+
 .footer-container {
   display: flex;
   justify-content: center;

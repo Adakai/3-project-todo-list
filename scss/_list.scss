@@ -137,4 +137,14 @@
     };
 };
 
-// bootstrap
+
+input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+};
+input:focus {
+    outline: none;
+    font-size: 2em;
+};

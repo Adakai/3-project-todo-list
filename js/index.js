@@ -160,7 +160,7 @@ function printTask(id) {
             'afterbegin',
             `
                         <div class="task">
-                            <h2>${list.task}</h2>
+                            <h2 data-editable>${list.task}</h2>
                             <i class="far fa-circle"></i>
                         </div>
                 `
@@ -186,3 +186,20 @@ function trashClicked(el) {
     // bigListArray.splice(el, 1);
     // el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);
 };
+
+
+$('body').on('click', '[data-editable]', function(){
+  
+    let $el = $(this);
+                
+    let $input = $('<input/>').val( $el.text() );
+    $el.replaceWith( $input );
+    
+    let save = function(){
+      let $h2 = $('<h2 data-editable />').text( $input.val() );
+      $input.replaceWith( $h2 );
+    };
+
+    $input.one('blur', save).focus();
+    
+  });
