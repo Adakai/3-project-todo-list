@@ -31,9 +31,9 @@
         </div>
 
         <div id="list_content">
+            <!-- <div class="list-collapse">list item</div>
             <ul id="list_name">
                 <li id="item" class="item">
-                    <h3>list</h3>
                     <div class="list-items">
                         <div class="list-name">
                             <h2>${list.item}<h2>
@@ -43,40 +43,22 @@
                             <button type="button" class="btn btn-secondary" onclick="trashClicked(this)">Delete<i class="fas fa-trash"></i></button>
                         </div>  
                     </div>
-                    <div id="accordion">
-                        <h3>Section 1</h3>
-                        <div>
-                              <p>
-                              Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                              ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                              amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                              odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                              </p>
-                        </div>
-                        <h3>Section 1</h3>
-                        <div>
-                              <p>
-                              Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                              ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                              amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                              odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                              </p>
-                        </div>
-                    </div>
-                    <!-- <div class="task-input" id="task${ranId}"> -->
-                        <!-- <div class="task">
-                            <h2 data-editable>${list.task}</h2>
-                            <i class="far fa-circle"></i>
-                        </div>
-                        <div id="task_input">
-                            <label>Task: </label>
-                            <input id="task_item" type="text" onkeyup="addTask(event, this)">
-                            <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
-                        </div> -->
-                        
-                    </div>
                 </li>
             </ul>
+            <button>show more</button>
+            <ul id="list_name">
+                <li id="item" class="item">
+                    <div class="list-items">
+                        <div class="list-name">
+                            <h2>${list.item}<h2>
+                        </div>
+                        <div class="item-btns">
+                            <button type="button" class="btn btn-secondary" onclick="addTaskInput(this)">Task<i class="fas fa-plus-circle"></i></button>
+                            <button type="button" class="btn btn-secondary" onclick="trashClicked(this)">Delete<i class="fas fa-trash"></i></button>
+                        </div>  
+                    </div>
+                </li>
+            </ul> -->
         </div>
         
 
@@ -84,15 +66,16 @@
 
         <div class="footer-container">
             <div id="footer" class="input-group input-group-lg">
-                <input id="list_input" type="text" class="form-control input-group input-group-lg" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="enterClicked(event)">
-                <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
+                <input id="list_input" type="text" class="form-control input-group input-group-lg" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="addList(event)">
+                <i class="fas fa-plus-circle" onclick="addList({which: 13})"></i>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+        <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="./js/bootstrap.min.js"></script>
         <script src="./js/popper.min.js"></script>

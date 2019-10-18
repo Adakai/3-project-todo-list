@@ -1,6 +1,18 @@
 @import "_varibles.scss";
 
 #list_content {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+
+    .list-collapse {
+        font-size: 1.3em;
+        border: 1px solid gray;
+        background-color: $green;
+        color: $white;
+        cursor: pointer;
+    }
+
     #list_name {
         margin: 0;
         padding: 0;

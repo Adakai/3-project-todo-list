@@ -27,7 +27,7 @@ class Tasks {
     };
 };
 
-function enterClicked(event) {
+function addList(event) {
     switch (event.which) {
         case 13:
             getList();
@@ -36,32 +36,32 @@ function enterClicked(event) {
     };
 };
 
-function buttonClicked() {
-    getList();
-};
-
 function getList() {
+    
     let itemInput = document.getElementById('list_input');
 
-    let newList = new Lists(itemInput.value);
-    bigListArray = [];
-    bigListArray.push(newList);
+    if (itemInput.value == '' || itemInput.value == null) {
 
-    printList();
-    itemInput.value = "";
-};
+    } else {
+        let newList = new Lists(itemInput.value);
+        bigListArray = [];
+        bigListArray.push(newList);
+
+        printList();
+        itemInput.value = "";
+    };
+ };
 
 function printList() {
 
     let ranId = Math.floor(Math.random() * 1000);
-
-    console.log(ranId);
    
     let listContent = document.getElementById('list_content');
 
     bigListArray.forEach(list => {
       listContent.insertAdjacentHTML('afterbegin',
         `
+        <div class="list-collapse">${list.item}</div>
             <ul id="list_name">
                 <li id="item${ranId}" class="item">
                     <div class="list-items">
@@ -78,13 +78,14 @@ function printList() {
         `);
     });
     
+    $( "#list_content" ).accordion( "refresh" );
 };
 
 function addTaskInput(id) {
+    let inputShow;
 
     let ranId = Math.floor(Math.random() * 1000);
 
-    let inputShow;
     let curId = $(id).closest('li').attr('id');    
     
     if (document.body.contains(document.getElementById('task_input'))) {
@@ -101,11 +102,12 @@ function addTaskInput(id) {
                     <div id="task_input">
                         <label>Task: </label>
                         <input id="task_item" type="text" onkeyup="addTask(event, this)">
-                        <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
+                        <i class="fas fa-plus-circle" onclick="addTask({which: 13}, this)"></i>
                     </div>
                 </div>
         `
         );
+        $( "#list_content" ).accordion( "refresh" );
 
     } else {
         inputShow = document.getElementById(`${curId}`);
@@ -117,11 +119,13 @@ function addTaskInput(id) {
                     <div id="task_input">
                         <label>Task: </label>
                         <input id="task_item" type="text" onkeyup="addTask(event, this)">
-                        <i class="fas fa-plus-circle" onclick="buttonClicked()"></i>
+                        <i class="fas fa-plus-circle" onclick="addTask({which: 13}, this)"></i>
                     </div>
                 </div>
             `
         );
+
+        $( "#list_content" ).accordion( "refresh" );
     };
 };
 
@@ -134,15 +138,21 @@ function addTask(event, id) {
     };
 
     function addItem(id) {
+
         bigTaskArray = [];
 
         let task = document.getElementById('task_item');
-        let newTask = new Tasks(task.value);
 
-        bigTaskArray.push(newTask);
+        if (task.value == '' || task.value == null) {
 
-        printTask(id);
-        task.value = "";
+        } else {
+            let newTask = new Tasks(task.value);
+    
+            bigTaskArray.push(newTask);
+    
+            printTask(id);
+            task.value = "";
+        };
     };
 };
 
@@ -153,9 +163,9 @@ function printTask(id) {
     console.log(curId);
     
     let inputTask = document.getElementById(curId);
-    
 
     bigTaskArray.forEach(list => {
+
         inputTask.insertAdjacentHTML(
             'afterbegin',
             `
@@ -166,22 +176,38 @@ function printTask(id) {
                 `
         );
     });
+
+    $( "#list_content" ).accordion( "refresh" );
 };
 
 function trashClicked(el) {
+
     bigListArray.splice(
         $(el)
+            .parent()
             .parent()
             .parent()
             .parent()
             .index(),
         1
     );
+
     $(el)
         .parent()
         .parent()
         .parent()
+        .parent()
+        .prev()
         .remove();
+
+    $(el)
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .remove();  
+
+    $( "#list_content" ).accordion( "refresh" );
 
     // bigListArray.splice(el, 1);
     // el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);
@@ -202,8 +228,12 @@ $('body').on('click', '[data-editable]', function(){
 
     $input.one('blur', save).focus();
     
-  });
+});
 
-  $( function() {
-    $( "#accordion" ).accordion();
-  });
+// $('html').on('click', 'onkeyup', function () {
+//     $( "#list_content" ).accordion( "refresh" );
+// });
+
+$( function() {
+    $( "#list_content" ).accordion();
+});
