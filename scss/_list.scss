@@ -7,7 +7,6 @@
 
     .list-collapse {
         @include box-shadow-one();
-        margin-bottom: 10px;
         font-size: 1.3em;
         border: 1px solid gray;
         background-color: $green;
@@ -123,8 +122,12 @@
                 };
 
                 .completed {
-                    color: green;
+                    text-decoration: line-through; 
+                    
                 };
+                .completed-i {
+                    color: $green;
+                }
     
                 #task_input {
                     display: flex;

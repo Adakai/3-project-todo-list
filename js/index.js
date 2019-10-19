@@ -59,7 +59,7 @@ function printList() {
     let listContent = document.getElementById('list_content');
 
     bigListArray.forEach(list => {
-      listContent.insertAdjacentHTML('afterbegin',
+      listContent.insertAdjacentHTML('beforeend',
         `
         <div class="list-collapse">${list.item}</div>
             <ul id="list_name">
@@ -170,7 +170,7 @@ function printTask(id) {
             'afterbegin',
             `
                         <div class="task">
-                            <h2 class="not-completed" data-editable>${list.task}</h2>
+                            <h2 data-editable>${list.task}</h2>
                             <i class="far fa-circle not-completed"></i>
                         </div>
                 `
@@ -182,45 +182,44 @@ function printTask(id) {
 
 function trashClicked(el) {
 
-    bigListArray.splice(
+    $(el).parent().parent().parent().parent().animate({
+        opacity: 0,
+        left: "+=50",
+        height: 0,
+      }, 800, function() {
+
+        bigListArray.splice(
+            $(el)
+                .parent()
+                .parent()
+                .parent()
+                .parent()
+                .index(),
+            1
+        );
+    
         $(el)
             .parent()
             .parent()
             .parent()
             .parent()
-            .index(),
-        1
-    );
-
-    $(el)
-        .parent()
-        .parent()
-        .parent()
-        .parent()
-        .prev()
-        .remove();
-
-    $(el)
-        .parent()
-        .parent()
-        .parent()
-        .parent()
-        .remove();  
+            .prev()
+            .remove();
+    
+        $(el)
+            .parent()
+            .parent()
+            .parent()
+            .parent()
+            .remove();
+        
+      });  
 
     $( "#list_content" ).accordion( "refresh" );
 
     // bigListArray.splice(el, 1);
     // el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);
 };
-
-// function completedTask(el) {
-// }
-$('.not-completed').click(function(){
-    
-    $(this).addClass('completed');
-    $(this).siblings().addClass('completed');
-});
-
 
 $('body').on('click', '[data-editable]', function(){
   
@@ -238,10 +237,32 @@ $('body').on('click', '[data-editable]', function(){
     
 });
 
-// $('html').on('click', 'onkeyup', function () {
-//     $( "#list_content" ).accordion( "refresh" );
-// });
-
 $( function() {
     $( "#list_content" ).accordion();
+});
+
+$('body').on("click", ".not-completed", function(){
+    $(this).toggleClass('completed-i fas fa-check'); 
+    $(this).siblings().toggleClass('completed');
+});
+
+
+
+$('#btn_delete').click(function () {
+      
+     $('.completed').animate({
+         opacity: 0,
+         left: "+=50",
+        height: 0,
+    }, 600, function() {
+         $('.completed').remove();
+    });
+
+    $('.completed-i').remove().animate({
+        opacity: 0,
+        left: "+=50",
+        height: 0,
+    }, 600, function() {
+        $('.completed-i').remove();
+    });
 });

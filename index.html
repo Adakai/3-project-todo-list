@@ -71,7 +71,7 @@
                     <div class="task-input" id="task${ranId}">
                         <div class="task">
                             <h2 class="not-completed" data-editable>list</h2>
-                            <i class="far fa-circle not-completed" ></i>
+                            <i class="far fa-circle not-completed"></i>
                         </div>
                         <div id="task_input">
                             <label>Task: </label>
@@ -90,6 +90,7 @@
             <div id="footer" class="input-group input-group-lg">
                 <input id="list_input" type="text" class="form-control input-group input-group-lg" placeholder="CREATE A LIST" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" onkeyup="addList(event)">
                 <i class="fas fa-plus-circle" onclick="addList({which: 13})"></i>
+                <button class="btn btn-secondary" id="btn_delete">Clear Completed</button>
             </div>
         </div>
 
